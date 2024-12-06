@@ -74,4 +74,10 @@ Twitch Task Manager Bot es una herramienta interactiva para gestionar tareas a t
 
 ## Licencia
 
-Este proyecto está licenciado bajo la [Licencia MIT](./LICENSE). Siéntete libre de usar, modificar y compartir este código.
+Este proyecto, **Twitch Task Manager Bot**, está licenciado bajo la [Licencia CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) con los siguientes términos:
+
+- **Uso no comercial**: Puedes usar, modificar y compartir este proyecto, pero no para fines comerciales.
+- **Atribución requerida**: Debes incluir el crédito al creador, **Jesus Oliva Morales**.
+- **Compartir igual**: Si modificas o distribuyes el proyecto, debes usar la misma licencia.
+
+Para usos comerciales o consultas adicionales, contacta con: [jesus241294@gmail.com](mailto:jesus241294@gmail.com).
