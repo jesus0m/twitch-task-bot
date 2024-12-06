@@ -56,16 +56,16 @@ Twitch Task Manager Bot es una herramienta interactiva para gestionar tareas a t
 
 ## Comandos Disponibles
 
-| **Comando**         | **Descripción**                                                                          |
-|----------------------|------------------------------------------------------------------------------------------|
-| `!tareas` / `!tasks` | Lista tus tareas pendientes y en curso.                                                  |
-| `!add` / `!tarea`    | Añade una nueva tarea con una descripción (por ejemplo: `!add Comprar café`).             |
-| `!marcar` / `!check` | Marca una tarea como "en curso" usando su ID o texto (por ejemplo: `!marcar 123`).        |
-| `!hecho` / `!done`   | Marca una tarea como "completada" (por ejemplo: `!hecho 123`).                            |
-| `!borrar` / `!delete`| Elimina una tarea específica por su ID o texto (por ejemplo: `!delete 123`).              |
-| `!taskclear`         | Elimina todas las tareas de tu lista.                                                    |
-| `!resetalltasks`     | Elimina todas las tareas de todos los usuarios (solo disponible para moderadores).        |
-| `!taskinfo`          | Muestra una lista con todos los comandos disponibles.                                    |
+| **Comando**          | **Descripción**                                                                                         |
+|----------------------|---------------------------------------------------------------------------------------------------------|
+| `!tareas` / `!tasks`                | Lista tus tareas pendientes y en curso.                                                  |
+| `!add` / `!tarea` / `!task`         | Añade una nueva tarea con una descripción (por ejemplo: `!add Comprar café`).            |
+| `!marcar` / `!check`                | Marca una tarea como "en curso" usando su ID o texto (por ejemplo: `!marcar 123`).       |
+| `!hecho` / `!completar` / `!done`   | Marca una tarea como "completada" (por ejemplo: `!hecho 123`).                           |
+| `!borrar` / `!delete`               | Elimina una tarea específica por su ID o texto (por ejemplo: `!delete 123`).             |
+| `!taskclear`                        | Elimina todas las tareas de tu lista.                                                    |
+| `!resetalltasks`                    | Elimina todas las tareas de todos los usuarios (solo disponible para moderadores).       |
+| `!taskinfo`                         | Muestra una lista con todos los comandos disponibles.                                    |
 
 ---
 
