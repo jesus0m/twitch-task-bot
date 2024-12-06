@@ -1,6 +1,10 @@
 
 # Twitch Task Manager Bot
 
+<div align="center">
+  <img width="411" alt="ssss" src="https://github.com/user-attachments/assets/aa4ce5e1-eebc-4d65-8d98-1454950f8fea">
+</div>
+
 ## Descripción
 
 Twitch Task Manager Bot es una herramienta interactiva para gestionar tareas a través del chat de Twitch. Permite a los usuarios añadir, marcar, completar y eliminar tareas directamente desde el chat, mientras el progreso se muestra en un widget visual ideal para OBS.
