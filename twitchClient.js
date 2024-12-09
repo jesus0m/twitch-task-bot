@@ -101,11 +101,22 @@ export function startTwitchBot(updateCallback) {
         }
 
         const userTasks = getUserTasks(userId);
-        const status = userTasks.length === 0 ? 'in progress' : 'pendiente'; // Automarcado si es la primera tarea
+        const hasInProgressTask = userTasks.some(task => task.status === 'in progress');
+
+        // Si no hay tareas "en curso", marcamos esta como "in progress", de lo contrario "pendiente"
+        const status = hasInProgressTask ? 'pendiente' : 'in progress';
         const newTask = addTask(userId, description, status);
 
         client.say(channel, `📝 @${userId}, tarea añadida: [${newTask.id}] ${newTask.title} (${translateStatus(newTask.status)})`);
         updateTasks(userId);
+
+        // Comprobar y marcar automáticamente si todas están completadas
+        const allTasksCompleted = userTasks.every(task => task.status === 'completed');
+        if (allTasksCompleted) {
+          updateTaskStatus(userId, newTask.id, 'in progress');
+          client.say(channel, `✅ @${userId}, tarea [${newTask.id}] marcada automáticamente como "en curso".`);
+          updateTasks(userId);
+        }
         break;
       }
 
