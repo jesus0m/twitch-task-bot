@@ -2,6 +2,40 @@ let currentTasks = [];
 let currentUser = '';
 let rotationInterval;
 
+if (!document.getElementById('long-taskname-style')) {
+  const style = document.createElement('style');
+  style.id = 'long-taskname-style';
+  style.textContent = `
+      /* Contenedor para el nombre de la tarea: oculta el desbordamiento */
+      .task-name-container {
+          position: relative;
+          overflow: hidden;
+          display: inline-block;
+          max-width: 100%;
+          vertical-align: middle;
+      }
+      /* Texto del nombre de la tarea */
+      .task-name {
+          display: inline-block;
+          white-space: nowrap;
+      }
+      /* Clase que activa la animación de desplazamiento */
+      .task-name.scrolling {
+          animation: scroll-text 6s ease-in-out infinite alternate;
+      }
+      /* Animación de desplazamiento de izquierda a derecha y vuelta */
+      @keyframes scroll-text {
+        0%, 25% {
+          transform: translateX(0);
+        }
+        75%, 100% {
+          transform: translateX(calc(-1 * var(--scroll-distance)));
+        }
+      }
+  `;
+  document.head.appendChild(style);
+}
+
 export function renderTasks(tasks) {
   const container = document.getElementById('task-container');
   container.innerHTML = '';
@@ -128,10 +162,28 @@ export function renderTasks(tasks) {
         statusIndicator.style.boxShadow = '0 0 15px rgba(200, 200, 200, 0.6)';
       }
 
-      // 📌 Texto de la tarea (con truncamiento automático)
+      // 📌 Texto de la tarea (sin truncamiento, con scroll automático si es muy largo)
+      const taskTitleContainer = document.createElement('div');
+      taskTitleContainer.classList.add('task-name-container', 'flex-grow', 'mr-2');
+
       const taskTitle = document.createElement('span');
       taskTitle.textContent = task.title;
-      taskTitle.classList.add('flex-grow', 'truncate', 'mr-2', 'text-lg', 'text-black');
+      taskTitle.classList.add('task-name', 'text-lg', 'text-black');
+
+
+      taskTitleContainer.appendChild(taskTitle);
+      taskDiv.appendChild(taskTitleContainer);
+
+      // Una vez ya está en el DOM, medir y activar la animación de scroll si es necesario
+      requestAnimationFrame(() => {
+        if (taskTitle.scrollWidth > taskTitleContainer.clientWidth) {
+          const scrollDistance = taskTitle.scrollWidth - taskTitleContainer.clientWidth;
+          taskTitle.style.setProperty('--scroll-distance', `${scrollDistance}px`);
+          taskTitle.classList.add('scrolling');
+        }
+      });
+
+      // Finalmente, se añade el contenedor en lugar del span original
 
       // 📌 ID visual de la tarea
       const idBubble = document.createElement('span');
@@ -141,7 +193,7 @@ export function renderTasks(tasks) {
       );
 
       taskDiv.appendChild(statusIndicator);
-      taskDiv.appendChild(taskTitle);
+      taskDiv.appendChild(taskTitleContainer);
       taskDiv.appendChild(idBubble);
       taskListContainer.appendChild(taskDiv);
     });
