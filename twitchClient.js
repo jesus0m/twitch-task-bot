@@ -157,7 +157,8 @@ export function startTwitchBot(updateCallback) {
         }
 
         const userTasks = getUserTasks(userId);
-        const task = findTask(userTasks, taskIdOrText);
+        const pendingTasks = userTasks.filter(task => task.status !== 'completed');
+        const task = findTask(pendingTasks, taskIdOrText);
 
         if (task === 'multiple') {
           client.say(channel, `⚠️ @${userId}, hay varias tareas con ese nombre. Usa el ID exacto.`);
