@@ -1,8 +1,7 @@
-
 # Twitch Task Manager Bot
 
 <div align="center">
-  <img width="411" alt="ssss" src="https://github.com/user-attachments/assets/aa4ce5e1-eebc-4d65-8d98-1454950f8fea">
+  <img width="411" alt="ssss" src="https://github.com/user-attachments/assets/cf360eb1-a79b-4734-b1a0-077aa6ef6986">
 </div>
 
 ## Descripción
